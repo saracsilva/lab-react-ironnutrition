@@ -10,6 +10,10 @@ import Search from './components/Search';
 function App() {
   const [foods, setFoods] = useState(dataFoods);
   const [search, setSearch] = useState('');
+  const handleDelete = (name) => {
+    setFoods(foods.filter((food) => food.name !== name));
+  };
+
   return (
     <div className="App">
       <h1>Hello</h1>
@@ -30,7 +34,7 @@ function App() {
           })
           .map((food) => (
             <div key={uuidv4()}>
-              <FoodBox food={food} />
+              <FoodBox food={food} handleDelete={handleDelete} />
             </div>
           ))}
       </div>
