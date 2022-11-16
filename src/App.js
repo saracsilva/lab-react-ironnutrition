@@ -3,6 +3,7 @@ import 'antd/dist/antd.min.css';
 import dataFoods from './foods.json';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import FoodBox from './components/FoodBox';
 
 function App() {
   const [foods, setFoods] = useState(dataFoods);
@@ -10,12 +11,14 @@ function App() {
     <div className="App">
       <h1>Food List</h1>
       <hr></hr>
-      {foods.map((food) => (
-        <div key={uuidv4()}>
-          <p> {food.name} </p>
-          <img src={food.image} width={100} />
-        </div>
-      ))}
+      <div className="foodBox">
+        {foods.map((food) => (
+          <div key={uuidv4()}>
+            <FoodBox food={food} />
+            {console.log(food)}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
