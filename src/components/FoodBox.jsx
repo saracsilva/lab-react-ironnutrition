@@ -3,7 +3,7 @@
 // and content that the component should render.
 // Remember to import Ant Design components before using them.
 import { Card, Col, Button } from 'antd';
-import './FoodBox.css';
+
 // Iteration 2
 function FoodBox({ food }) {
   return (
