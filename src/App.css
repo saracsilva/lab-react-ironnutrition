@@ -43,3 +43,19 @@
   justify-content: center;
   align-items: center;
 }
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 60vw;
+  margin-left: 10vw;
+}
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  width: 30vw;
+  margin-left: 10vw;
+}

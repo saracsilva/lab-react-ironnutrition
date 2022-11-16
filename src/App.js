@@ -5,22 +5,34 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import FoodBox from './components/FoodBox';
 import AddFoodForm from './components/AddFoodForm';
+import Search from './components/Search';
 
 function App() {
   const [foods, setFoods] = useState(dataFoods);
-
+  const [search, setSearch] = useState('');
   return (
     <div className="App">
+      <h1>Hello</h1>
       <hr></hr>
-      <AddFoodForm foods={foods} setFoods={setFoods} />
+      <div>
+        <Search search={search} setSearch={setSearch} />
+      </div>
+      <hr></hr>
+      <div className="form">
+        <AddFoodForm foods={foods} setFoods={setFoods} />
+      </div>
       <hr></hr>
       <h1>Food List</h1>
       <div className="foodBox">
-        {foods.map((food) => (
-          <div key={uuidv4()}>
-            <FoodBox food={food} />
-          </div>
-        ))}
+        {foods
+          .filter((food) => {
+            return food.name.toLowerCase().includes(search.toLowerCase());
+          })
+          .map((food) => (
+            <div key={uuidv4()}>
+              <FoodBox food={food} />
+            </div>
+          ))}
       </div>
     </div>
   );
